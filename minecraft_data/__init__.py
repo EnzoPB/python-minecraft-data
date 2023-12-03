@@ -1,21 +1,16 @@
-import os
+from os import path
 import sys
 
 from minecraft_data.tools import convert, commondata
 
 
 class mod(sys.modules[__name__].__class__):
+    data_folder: str
     def __call__(self, version, edition = 'pc'):
-        _dir = os.path.join(
-            os.path.dirname(__file__), "data/data/"
-        )
-        return type(version, (object,), convert(_dir, version, edition))
+        return type(version, (object,), convert(self.data_folder, version, edition))
 
     def common(self, edition = 'pc'):
-        _dir = os.path.join(
-            os.path.dirname(__file__), "data/data/"
-        )
-        return type('common', (object,), commondata(_dir, edition))
+        return type('common', (object,), commondata(self.data_folder, edition))
 
 
 sys.modules[__name__].__class__ = mod

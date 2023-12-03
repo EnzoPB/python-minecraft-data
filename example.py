@@ -1,5 +1,7 @@
 import minecraft_data
 # Java edition minecraft-data
+minecraft_data.data_folder = 'minecraft-data/data'
+
 mcd = minecraft_data("1.13")
 
 print(mcd.version)
