@@ -1,3 +1,7 @@
+## 3.21.0
+ * Changed build backend to hatchling
+ * Removed submodule, you now have to manually clone the minecraft_data repo
+
 ## 3.20.0
  * Update minecraft-data to 3.20.0
 
